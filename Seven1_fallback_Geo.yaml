@@ -117,6 +117,7 @@ dns:
   fake-ip-filter:
     - "+.lan"                                                           # 真实解析  常见局域网域名后缀
     - "rule-set:add_direct_domain"                                      # 真实解析  大陆冷门域名
+    - "rule-set:Custom_Direct_Domain"                                   # 真实解析  大陆冷门域名
     - "geosite:cn"                                                      # 真实解析  大陆域 GeoSite 数据
   nameserver:                                                           # 解析服务  请使用运营商提供的 DNS
     - 114.114.114.114
@@ -198,12 +199,14 @@ rules:
   - "GEOIP,netflix,Netflix,no-resolve"                                  # Netflix
   - "GEOSITE,geolocation-!cn,一键代理"                                   # 排除国内
   - "RULE-SET,add_direct_domain,国内直连"                                # 直连域名
+  - "RULE-SET,Custom_Direct_Domain,国内直连"                             # 直连域名
   - "GEOSITE,cn,国内直连"                                                # 中国域名
   - "GEOIP,cn,国内直连,no-resolve"                                       # 中国IP
   - "MATCH,漏网之鱼"                                                     # 兜底规则
 # ══ 规则补充 ══
 rule-providers: 
   add_direct_domain:    { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/Seven1echo/Yaml/refs/heads/main/rules/Seven1_Direct_Domain.mrs"}
+  Custom_Direct_Domain: { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/refs/heads/main/rule/Custom_Direct_Domain.mrs"}
   cn_ip:                { <<: *Anchor_IP, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
 
 
