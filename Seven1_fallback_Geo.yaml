@@ -161,7 +161,7 @@ proxy-groups:
   - {name: 韩国-故转,     <<: *Anchor_FB, proxies: [韩国-手动, 韩国-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/KR.png}
   - {name: 美国-故转,     <<: *Anchor_FB, proxies: [美国-手动, 美国-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/US.png}
   - {name: 欧洲-故转,     <<: *Anchor_FB, proxies: [欧洲-手动, 欧洲-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/EU.png}
-  - {name: 其他-故转,     <<: *Anchor_HS, proxies: [其他-手动, 其他-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OT.png}
+  - {name: 其他-故转,     <<: *Anchor_FB, proxies: [其他-手动, 其他-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OT.png}
 # ══ 手动组 ══
   - {name: 香港-手动,     <<: *Anchor_HS, filter: *Anchor_HK, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/HK.png}
   - {name: 台湾-手动,     <<: *Anchor_HS, filter: *Anchor_TW, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/TW.png}
@@ -179,7 +179,7 @@ proxy-groups:
   - {name: 韩国-自动,     <<: *Anchor_UT, filter: *Anchor_KR, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/KR.png}
   - {name: 美国-自动,     <<: *Anchor_UT, filter: *Anchor_US, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/US.png}
   - {name: 欧洲-自动,     <<: *Anchor_UT, filter: *Anchor_EU, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/EU.png}
-  - {name: 其他-自动,     <<: *Anchor_HS, filter: *Anchor_OT, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OT.png}
+  - {name: 其他-自动,     <<: *Anchor_UT, filter: *Anchor_OT, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OT.png}
 
 
 
