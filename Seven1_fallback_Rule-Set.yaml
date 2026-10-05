@@ -132,8 +132,8 @@ proxy-groups:
   - {name: GitHub,       <<: *Anchor_OP, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/GitHub.png}
   - {name: OneDrive,     <<: *Anchor_LD, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OneDrive.png}
   - {name: Microsoft,    <<: *Anchor_LD, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Microsoft.png}
-  - {name: AppleMusic,   <<: *Anchor_LD, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Apple.png}
   - {name: Apple,        <<: *Anchor_LD, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Apple.png}
+  - {name: AppleMusic,   <<: *Anchor_LD, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Apple.png}
   - {name: Steam,        <<: *Anchor_OP, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Steam.png}
   - {name: TikTok,       <<: *Anchor_OP, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/TikTok.png}
   - {name: Twitter(X),   <<: *Anchor_OP, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Twitter.png}
@@ -187,8 +187,8 @@ rules:
   - RULE-SET,github_domain,GitHub                                       # GitHub
   - RULE-SET,onedrive_domain,OneDrive                                   # OneDrive
   - RULE-SET,microsoft_domain,Microsoft                                 # 微软服务
-  - RULE-SET,apple_music_domain,AppleMusic                              # 苹果音乐服务
   - RULE-SET,apple_domain,Apple                                         # 苹果服务
+  - RULE-SET,apple_music_domain,AppleMusic                              # 苹果音乐服务
   - RULE-SET,steam_domain,Steam                                         # Steam
   - RULE-SET,tiktok_domain,TikTok                                       # TikTok
   - RULE-SET,twitter_domain,Twitter(X)                                  # Twitter(X)
