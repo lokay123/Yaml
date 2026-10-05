@@ -186,8 +186,8 @@ rules:
   - RULE-SET,github_domain,GitHub                                       # GitHub
   - RULE-SET,onedrive_domain,OneDrive                                   # OneDrive
   - RULE-SET,microsoft_domain,Microsoft                                 # 微软服务
-  - RULE-SET,apple_domain,Apple                                         # 苹果服务
   - RULE-SET,apple_music_domain,Apple                                   # 苹果音乐服务
+  - RULE-SET,apple_domain,Apple                                         # 苹果服务
   - RULE-SET,steam_domain,Steam                                         # Steam
   - RULE-SET,tiktok_domain,TikTok                                       # TikTok
   - RULE-SET,twitter_domain,Twitter(X)                                  # Twitter(X)
