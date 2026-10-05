@@ -8,20 +8,20 @@
 
 # ███████████████████████████ 锚点区域 ███████████████████████████
 # ══ 订阅锚点 ══
-Anchor_PR: &Anchor_PR {type: http, interval: 86400, proxy: DIRECT, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 300}, filter: "^(?!.*(到期|过期|剩余|网址|官网|邮箱|订阅|套餐|流量|说明|重置)).*$"}
+Anchor_PR: &Anchor_PR {type: http, interval: 7200, proxy: DIRECT, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 300}, filter: "^(?!.*(到期|过期|剩余|网址|官网|邮箱|订阅|套餐|流量|说明|重置)).*$"}
 # ══ 出站锚点 ══
-Anchor_PG: &Anchor_PG {type: select, proxies: [香港-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 香港-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 香港-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动, 国内直连]}
-Anchor_OP: &Anchor_OP {type: select, proxies: [一键代理, 香港-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 香港-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 香港-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动, 国内直连]}
-Anchor_LD: &Anchor_LD {type: select, proxies: [国内直连, 一键代理, 香港-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 香港-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 香港-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动]}
+Anchor_PG: &Anchor_PG {type: select, proxies: [香港-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 其他-故转, 香港-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 其他-自动, 香港-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动, 国内直连]}
+Anchor_OP: &Anchor_OP {type: select, proxies: [一键代理, 香港-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 其他-故转, 香港-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 其他-自动, 香港-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动, 国内直连]}
+Anchor_LD: &Anchor_LD {type: select, proxies: [国内直连, 一键代理, 香港-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 其他-故转, 香港-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 其他-自动, 香港-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动]}
 Anchor_DR: &Anchor_DR {type: select, proxies: [DIRECT], hidden: true}
 # ══ 策略锚点 ══
 Anchor_HS: &Anchor_HS {type: select, empty-fallback: REJECT, include-all: true}
 Anchor_FB: &Anchor_FB {type: fallback, empty-fallback: REJECT, interval: 300, lazy: false, timeout: 3000, max-failed-times: 2, hidden: true, url: 'https://www.gstatic.com/generate_204'}
 Anchor_UT: &Anchor_UT {type: url-test, empty-fallback: REJECT, interval: 300, lazy: false, timeout: 3000, max-failed-times: 2, hidden: true, url: 'https://www.gstatic.com/generate_204', tolerance: 50, include-all: true}
 # ══ 规则锚点 ══
-Anchor_DN: &Anchor_DN {type: http, interval: 86400, behavior: domain, format: mrs}
-Anchor_IP: &Anchor_IP {type: http, interval: 86400, behavior: ipcidr, format: mrs}
-Anchor_CL: &Anchor_CL {type: http, interval: 86400, behavior: classical, format: yaml}
+Anchor_DN: &Anchor_DN {type: http, interval: 7200, behavior: domain, format: mrs}
+Anchor_IP: &Anchor_IP {type: http, interval: 7200, behavior: ipcidr, format: mrs}
+Anchor_CL: &Anchor_CL {type: http, interval: 7200, behavior: classical, format: yaml}
 # ══ 区域锚点 ══
 Anchor_HK: &Anchor_HK '(?i)^(?=.*(香港|(?<![a-zA-Z])(hk|hkg)(?![a-zA-Z])|hongkong|hong kong|🇭🇰)).*$'
 Anchor_TW: &Anchor_TW '(?i)^(?=.*(台湾|(?<![a-zA-Z])(tw|tpe|khh|tsa)(?![a-zA-Z])|taiwan|taipei|🇹🇼)).*$'
@@ -132,6 +132,7 @@ proxy-groups:
   - {name: GitHub,       <<: *Anchor_OP, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/GitHub.png}
   - {name: OneDrive,     <<: *Anchor_LD, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OneDrive.png}
   - {name: Microsoft,    <<: *Anchor_LD, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Microsoft.png}
+  - {name: AppleMusic,   <<: *Anchor_LD, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Apple.png}
   - {name: Apple,        <<: *Anchor_LD, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Apple.png}
   - {name: Steam,        <<: *Anchor_OP, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/Steam.png}
   - {name: TikTok,       <<: *Anchor_OP, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/TikTok.png}
@@ -152,6 +153,7 @@ proxy-groups:
   - {name: 韩国-故转,     <<: *Anchor_FB, proxies: [韩国-手动, 韩国-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/KR.png}
   - {name: 美国-故转,     <<: *Anchor_FB, proxies: [美国-手动, 美国-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/US.png}
   - {name: 欧洲-故转,     <<: *Anchor_FB, proxies: [欧洲-手动, 欧洲-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/EU.png}
+  - {name: 其他-故转,     <<: *Anchor_FB, proxies: [其他-手动, 其他-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OT.png}
 # ══ 手动组 ══
   - {name: 香港-手动,     <<: *Anchor_HS, filter: *Anchor_HK, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/HK.png}
   - {name: 台湾-手动,     <<: *Anchor_HS, filter: *Anchor_TW, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/TW.png}
@@ -169,6 +171,7 @@ proxy-groups:
   - {name: 韩国-自动,     <<: *Anchor_UT, filter: *Anchor_KR, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/KR.png}
   - {name: 美国-自动,     <<: *Anchor_UT, filter: *Anchor_US, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/US.png}
   - {name: 欧洲-自动,     <<: *Anchor_UT, filter: *Anchor_EU, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/EU.png}
+  - {name: 其他-自动,     <<: *Anchor_UT, filter: *Anchor_OT, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OT.png}
 
 
 
@@ -184,6 +187,7 @@ rules:
   - RULE-SET,github_domain,GitHub                                       # GitHub
   - RULE-SET,onedrive_domain,OneDrive                                   # OneDrive
   - RULE-SET,microsoft_domain,Microsoft                                 # 微软服务
+  - RULE-SET,apple_music_domain,AppleMusic                              # 苹果音乐服务
   - RULE-SET,apple_domain,Apple                                         # 苹果服务
   - RULE-SET,steam_domain,Steam                                         # Steam
   - RULE-SET,tiktok_domain,TikTok                                       # TikTok
@@ -200,6 +204,7 @@ rules:
   - RULE-SET,netflix_ip,Netflix,no-resolve                              # Netflix
   - RULE-SET,geolocation-!cn,一键代理                                    # 排除国内
   - RULE-SET,add_cn_domain,国内直连                                      # 直连域名
+  - RULE-SET,Custom_Direct_Domain,国内直连                               # 直连域名
   - RULE-SET,cn_domain,国内直连                                          # 中国域名
   - RULE-SET,cn_ip,国内直连,no-resolve                                   # 中国IP
   - MATCH,漏网之鱼                                                       # 兜底规则
@@ -217,6 +222,7 @@ rule-providers:
   github_domain:            { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
   onedrive_domain:          { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs"}
   microsoft_domain:         { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
+  apple_music_domain:       { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-music.mrs"}
   apple_domain:             { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
   steam_domain:             { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/steam.mrs"} 
   tiktok_domain:            { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
@@ -230,6 +236,7 @@ rule-providers:
   geolocation-!cn:          { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
   cn_domain:                { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   add_cn_domain:            { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/Seven1echo/Yaml/refs/heads/main/rules/Seven1_Direct_Domain.mrs"}
+  Custom_Direct_Domain:     { <<: *Anchor_DN, url: "https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/refs/heads/main/rule/Custom_Direct_Domain.mrs"}
 # ══ IP规则 ══
   private_ip:               { <<: *Anchor_IP, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
   google_ip:                { <<: *Anchor_IP, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
