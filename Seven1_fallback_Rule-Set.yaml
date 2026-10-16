@@ -10,9 +10,9 @@
 # ══ 订阅锚点 ══
 Anchor_PR: &Anchor_PR {type: http, interval: 7200, proxy: DIRECT, health-check: {enable: true, url: 'https://www.gstatic.com/generate_204', interval: 300}, filter: "^(?!.*(到期|过期|剩余|网址|官网|邮箱|订阅|套餐|流量|说明|重置)).*$"}
 # ══ 出站锚点 ══
-Anchor_PG: &Anchor_PG {type: select, proxies: [香港-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 其他-故转, 香港-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 其他-自动, 香港-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动, 国内直连]}
-Anchor_OP: &Anchor_OP {type: select, proxies: [一键代理, 香港-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 其他-故转, 香港-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 其他-自动, 香港-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动, 国内直连]}
-Anchor_LD: &Anchor_LD {type: select, proxies: [国内直连, 一键代理, 香港-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 其他-故转, 香港-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 其他-自动, 香港-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动]}
+Anchor_PG: &Anchor_PG {type: select, proxies: [香港-故转, 澳门-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 其他-故转, 香港-自动, 澳门-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 其他-自动, 香港-手动, 澳门-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动, 国内直连]}
+Anchor_OP: &Anchor_OP {type: select, proxies: [一键代理, 香港-故转, 澳门-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 其他-故转, 香港-自动, 澳门-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 其他-自动, 香港-手动, 澳门-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动, 国内直连]}
+Anchor_LD: &Anchor_LD {type: select, proxies: [国内直连, 一键代理, 香港-故转, 澳门-故转, 台湾-故转, 日本-故转, 新加坡-故转, 韩国-故转, 美国-故转, 欧洲-故转, 其他-故转, 香港-自动, 澳门-自动, 台湾-自动, 日本-自动, 新加坡-自动, 韩国-自动, 美国-自动, 欧洲-自动, 其他-自动, 香港-手动, 澳门-手动, 台湾-手动, 日本-手动, 新加坡-手动, 韩国-手动, 美国-手动, 欧洲-手动, 其他-手动]}
 Anchor_DR: &Anchor_DR {type: select, proxies: [DIRECT], hidden: true}
 # ══ 策略锚点 ══
 Anchor_HS: &Anchor_HS {type: select, empty-fallback: REJECT, include-all: true}
@@ -24,13 +24,14 @@ Anchor_IP: &Anchor_IP {type: http, interval: 7200, behavior: ipcidr, format: mrs
 Anchor_CL: &Anchor_CL {type: http, interval: 7200, behavior: classical, format: yaml}
 # ══ 区域锚点 ══
 Anchor_HK: &Anchor_HK '(?i)^(?=.*(香港|(?<![a-zA-Z])(hk|hkg)(?![a-zA-Z])|hongkong|hong kong|🇭🇰)).*$'
+Anchor_MO: &Anchor_MO '(?i)^(?=.*(澳门|(?<![a-zA-Z])(mo|mfm)(?![a-zA-Z])|macau|macao|🇲🇴)).*$'
 Anchor_TW: &Anchor_TW '(?i)^(?=.*(台湾|(?<![a-zA-Z])(tw|tpe|khh|tsa)(?![a-zA-Z])|taiwan|taipei|🇹🇼)).*$'
 Anchor_JP: &Anchor_JP '(?i)^(?=.*(日本|(?<![a-zA-Z])(jp|nrt|hnd|kix|cts|fuk)(?![a-zA-Z])|japan|tokyo|🇯🇵)).*$'
 Anchor_SG: &Anchor_SG '(?i)^(?=.*(新加坡|(?<![a-zA-Z])(sg|sin|xsp)(?![a-zA-Z])|singapore|🇸🇬)).*$'
 Anchor_KR: &Anchor_KR '(?i)^(?=.*(韩国|(?<![a-zA-Z])(kr|icn|gmp|pus)(?![a-zA-Z])|korea|seoul|🇰🇷)).*$'
 Anchor_US: &Anchor_US '(?i)^(?=.*(美国|(?<![a-zA-Z])(us|usa|lax|sfo|jfk|sjc)(?![a-zA-Z])|america|united states|🇺🇸)).*$'
 Anchor_EU: &Anchor_EU '(?i)^(?=.*(奥地利|奥地利共和国|比利时|保加利亚|克罗地亚|塞浦路斯|捷克|丹麦|爱沙尼亚|芬兰|法国|德国|希腊|匈牙利|爱尔兰|意大利|拉脱维亚|立陶宛|卢森堡|荷兰|波兰|葡萄牙|罗马尼亚|斯洛伐克|斯洛文尼亚|西班牙|瑞典|英国|🇧🇪|🇨🇿|🇩🇰|🇫🇮|🇫🇷|🇩🇪|🇮🇪|🇮🇹|🇱🇹|🇱🇺|🇳🇱|🇵🇱|🇸🇪|🇬🇧|CDG|FRA|AMS|MAD|BCN|FCO|MUC|BRU)).*$'
-Anchor_OT: &Anchor_OT '^(?!.*(DIRECT|香港|台湾|日本|新加坡|韩国|美国|奥地利|奥地利共和国|比利时|保加利亚|克罗地亚|塞浦路斯|捷克|丹麦|爱沙尼亚|芬兰|法国|德国|希腊|匈牙利|爱尔兰|意大利|拉脱维亚|立陶宛|卢森堡|荷兰|波兰|葡萄牙|罗马尼亚|斯洛伐克|斯洛文尼亚|西班牙|瑞典|英国|🇭🇰|🇹🇼|🇸🇬|🇯🇵|🇰🇷|🇺🇸|🇬🇧|HK|TW|SG|JP|KR|US|GB|CDG|FRA|AMS|MAD|BCN|FCO|MUC|BRU|HKG|TPE|TSA|KHH|SIN|XSP|NRT|HND|KIX|CTS|FUK|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD|LHR|LGW)).*$'
+Anchor_OT: &Anchor_OT '^(?!.*(DIRECT|香港|澳门|台湾|日本|新加坡|韩国|美国|奥地利|奥地利共和国|比利时|保加利亚|克罗地亚|塞浦路斯|捷克|丹麦|爱沙尼亚|芬兰|法国|德国|希腊|匈牙利|爱尔兰|意大利|拉脱维亚|立陶宛|卢森堡|荷兰|波兰|葡萄牙|罗马尼亚|斯洛伐克|斯洛文尼亚|西班牙|瑞典|英国|🇭🇰|🇲🇴|🇹🇼|🇸🇬|🇯🇵|🇰🇷|🇺🇸|🇬🇧|HK|MO|TW|SG|JP|KR|US|GB|CDG|FRA|AMS|MAD|BCN|FCO|MUC|BRU|HKG|MFM|TPE|TSA|KHH|SIN|XSP|NRT|HND|KIX|CTS|FUK|JFK|LAX|ORD|ATL|DFW|SFO|MIA|SEA|IAD|LHR|LGW)).*$'
 
 
 
@@ -144,6 +145,7 @@ proxy-groups:
   - {name: 国内直连,      <<: *Anchor_DR, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/China.png}
 # ══ 故转组 ══
   - {name: 香港-故转,     <<: *Anchor_FB, proxies: [香港-手动, 香港-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/HK.png}
+  - {name: 澳门-故转,     <<: *Anchor_FB, proxies: [澳门-手动, 澳门-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/HK.png}
   - {name: 台湾-故转,     <<: *Anchor_FB, proxies: [台湾-手动, 台湾-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/TW.png}
   - {name: 日本-故转,     <<: *Anchor_FB, proxies: [日本-手动, 日本-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/JP.png}
   - {name: 新加坡-故转,   <<: *Anchor_FB, proxies: [新加坡-手动, 新加坡-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/SG.png}
@@ -153,6 +155,7 @@ proxy-groups:
   - {name: 其他-故转,     <<: *Anchor_FB, proxies: [其他-手动, 其他-自动], icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OT.png}
 # ══ 手动组 ══
   - {name: 香港-手动,     <<: *Anchor_HS, filter: *Anchor_HK, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/HK.png}
+  - {name: 澳门-手动,     <<: *Anchor_HS, filter: *Anchor_MO, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/HK.png}
   - {name: 台湾-手动,     <<: *Anchor_HS, filter: *Anchor_TW, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/TW.png}
   - {name: 日本-手动,     <<: *Anchor_HS, filter: *Anchor_JP, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/JP.png}
   - {name: 新加坡-手动,   <<: *Anchor_HS, filter: *Anchor_SG, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/SG.png}
@@ -162,6 +165,7 @@ proxy-groups:
   - {name: 其他-手动,     <<: *Anchor_HS, filter: *Anchor_OT, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/OT.png}
 # ══ 自动组 ══
   - {name: 香港-自动,     <<: *Anchor_UT, filter: *Anchor_HK, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/HK.png}
+  - {name: 澳门-自动,     <<: *Anchor_UT, filter: *Anchor_MO, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/TW.png}
   - {name: 台湾-自动,     <<: *Anchor_UT, filter: *Anchor_TW, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/TW.png}
   - {name: 日本-自动,     <<: *Anchor_UT, filter: *Anchor_JP, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/JP.png}
   - {name: 新加坡-自动,   <<: *Anchor_UT, filter: *Anchor_SG, icon: https://github.com/Seven1echo/Yaml/raw/main/icons/SG.png}
