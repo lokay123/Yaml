@@ -203,7 +203,7 @@ rules:
   - RULE-SET,telegram_ip,Telegram,no-resolve                              # Telegram
   - RULE-SET,netflix_ip,Netflix,no-resolve                                # Netflix
   - RULE-SET,cn_domain,国内直连                                            # 国内域名
-  - RULE-SET,Custom_Direct_Domain,国内直连                                 # 直连域名
+  - RULE-SET,Custom_Direct_Domain,国内直连                                 # 直连补充
   - RULE-SET,add_cn_domain,国内直连                                        # 直连补充
   - RULE-SET,bps_cn_ip,国内直连,no-resolve                                 # 国内IP（聚合版）
   - MATCH,漏网之鱼                                                         # 兜底规则
